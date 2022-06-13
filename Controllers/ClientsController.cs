@@ -28,6 +28,8 @@ namespace cwiczenia5_mp_s21461.Controllers
                     return Ok("Client removed");
                 case 1:
                     return NotFound("Cant't delete - client has a scheduled trip");
+                case 2:
+                    return NotFound("Client not found");
                 default:
                     return BadRequest("Internal server error");
 

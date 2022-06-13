@@ -84,8 +84,14 @@ namespace cwiczenia5_mp_s21461.Services
 
         public async Task<int> RemoveClient(int id)
         {
-            var result = await _dbContext.ClientTrips.Where(e => e.IdClient == id).FirstOrDefaultAsync();
+            var result = await _dbContext.Clients.Where(e => e.IdClient == id).FirstOrDefaultAsync();
             if (result == null)
+            {
+                return 2;
+            }
+
+            var result2 = await _dbContext.ClientTrips.Where(e => e.IdClient == id).FirstOrDefaultAsync();
+            if (result2 != null)
             {
                 return 1;
             }
